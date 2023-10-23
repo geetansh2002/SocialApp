@@ -13,9 +13,7 @@ class CreatePost : AppCompatActivity() {
         val postButton=findViewById<Button>(R.id.postButton)
         postButton.setOnClickListener{
             val post=typeBox.text.toString().trim()
-            if (post.isNotEmpty()){
 
-            }
         }
     }
 }
