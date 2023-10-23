@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">Social App</string>
+    <string name="don_t_have_account_create_now">Don\'t have account/Create now</string>
+    <string name="sign_in">Sign in</string>
+    <string name="password">Password</string>
+    <string name="email">Email</string>
+    <string name="let_s_start">Let\'s Start</string>
+    <string name="logo">Logo</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="create_an_account">Create an account</string>
+    <string name="create_profile">Create Profile</string>
+    <string name="user_name">User Name</string>
+    <string name="image_picker">Image Picker</string>
+    <string name="create">Create</string>
+    <string name="upload_image">Upload image</string>
+    <string name="sign_in_">Sign In</string>
+    <string name="addpost">AddPost</string>
+    <string name="type_here">Type here...</string>
+    <string name="post">Post</string>
+</resources>
