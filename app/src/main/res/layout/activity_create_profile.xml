@@ -46,11 +46,12 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:id="@+id/text2"
         android:text="@string/upload_image"
+
         android:textSize="20sp"/>
     <EditText
         android:id="@+id/userName"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="40dp"
         app:layout_constraintTop_toBottomOf="@id/text2"
         android:layout_marginTop="20dp"
         app:layout_constraintStart_toStartOf="parent"
@@ -59,6 +60,7 @@
         android:layout_marginEnd="10dp"
         android:hint="@string/user_name"
         android:autofillHints="User Name"
+        android:background="@drawable/background1"
         android:inputType="textPersonName" />
     <Button
         android:layout_width="wrap_content"
@@ -68,6 +70,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="20dp"
         android:id="@+id/createButton"
+        android:background="@drawable/background1"
         android:text="@string/create"
         />
 
