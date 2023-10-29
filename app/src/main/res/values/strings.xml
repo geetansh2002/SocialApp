@@ -17,4 +17,7 @@
     <string name="addpost">AddPost</string>
     <string name="type_here">Type here...</string>
     <string name="post">Post</string>
+    <string name="userimage">userImage</string>
+    <string name="image">image</string>
+    <string name="like">like</string>
 </resources>
