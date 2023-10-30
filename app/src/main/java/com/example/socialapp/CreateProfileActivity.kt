@@ -19,8 +19,8 @@ import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.FirebaseStorage
 
 class CreateProfileActivity : AppCompatActivity() {
-    val storage = FirebaseStorage.getInstance()
-    val storageRef = storage.reference
+    private val storage = FirebaseStorage.getInstance()
+    private val storageRef = storage.reference
     private lateinit var pickImage: ImageButton
     private var imageUri2: Uri? = null
     private val getContent =
@@ -54,17 +54,11 @@ class CreateProfileActivity : AppCompatActivity() {
             val userName2 = userName.text.toString()
 
             if (imageUri2 != null) {
-                // Generate a unique filename for the image (e.g., using the user's ID)
                 val userId = FirebaseAuth.getInstance().currentUser?.uid
                 val imageFileName = "profile_images/$userId.jpg"
-
-                // Get a reference to the Firebase Storage location
                 val imageRef = storageRef.child(imageFileName)
-
-                // Upload the selected image to Firebase Storage
                 imageRef.putFile(imageUri2!!)
                     .addOnSuccessListener {
-                        // Image uploaded successfully, now add user data to Firestore
                         val downloadUrlTask = imageRef.downloadUrl
                         downloadUrlTask.addOnSuccessListener { uri ->
                             addUser(email, userName2, uri)
@@ -73,7 +67,6 @@ class CreateProfileActivity : AppCompatActivity() {
                         }
                     }
                     .addOnFailureListener { e ->
-                        // Handle errors during image upload
                         Log.e("FirebaseStorageError", "Image upload failed", e)
                         Toast.makeText(
                             this,
@@ -82,11 +75,9 @@ class CreateProfileActivity : AppCompatActivity() {
                         ).show()
                     }
             } else {
-                // Handle case when no image is selected
                 Toast.makeText(this, "Please select an image", Toast.LENGTH_SHORT).show()
             }
         }
-
     }
 
     private fun imagePicker() {

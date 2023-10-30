@@ -51,7 +51,7 @@
             android:layout_marginTop="12dp"
             android:textColor="#212121" />
 
-        <ImageView
+        <ImageButton
             android:id="@+id/likeButton"
             android:layout_width="24dp"
             android:layout_height="24dp"

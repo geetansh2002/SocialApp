@@ -3,6 +3,7 @@ package com.example.socialapp
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
@@ -23,8 +24,8 @@ class PostAdapter(options: FirestoreRecyclerOptions<Post>) : FirestoreRecyclerAd
         holder.userName.text=model.username
         holder.post.text=model.post
         holder.createdAt.text=getTimeAgo(model.currentTime)
-
     }
+
     private fun getTimeAgo(timestamp: String?): String {
         if (timestamp == null) {
             return "N/A"
@@ -54,4 +55,5 @@ class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
     var userName:TextView=itemView.findViewById(R.id.userName)
     var createdAt:TextView=itemView.findViewById(R.id.createdAt)
     val post:TextView=itemView.findViewById(R.id.postTitle)
+    val likedButton:ImageButton=itemView.findViewById(R.id.likeButton)
 }
