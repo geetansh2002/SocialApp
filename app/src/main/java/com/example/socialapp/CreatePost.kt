@@ -1,9 +1,12 @@
 package com.example.socialapp
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ProgressBar
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
@@ -24,6 +27,7 @@ class CreatePost : AppCompatActivity() {
         postButton.setOnClickListener{
             val post=typeBox.text.toString().trim()
             if (post.isNotEmpty()){
+                showBar()
                 getUsername(post)
             }
         }
@@ -48,8 +52,16 @@ class CreatePost : AppCompatActivity() {
                 }
         }
     }
+    private fun showBar(){
+        val progressbar=findViewById<ProgressBar>(R.id.progressbar)
+        progressbar.visibility=View.VISIBLE
+    }
+    private fun hideBar(){
+        val progressbar=findViewById<ProgressBar>(R.id.progressbar)
+        progressbar.visibility=View.GONE
+    }
 
-    private fun addPost(post:String,username:String,userImage:String){
+     private fun addPost(post:String, username:String, userImage:String){
        if (currentUser!=null){
            val userId = currentUser.uid
            val currentTime = SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault()).format(
@@ -67,9 +79,11 @@ class CreatePost : AppCompatActivity() {
                .addOnSuccessListener { documentReference ->
                    val message = "Post Created with ID: " + documentReference.id
                    Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
-                   finish()
+                  val intent=Intent(this,MainActivity::class.java)
+                   startActivity(intent)
                }
                .addOnFailureListener { e ->
+                   hideBar()
                    Log.e("FirestoreError", "Firestore operation failed", e)
                    Toast.makeText(this, " ${e.message}", Toast.LENGTH_SHORT).show()
                }

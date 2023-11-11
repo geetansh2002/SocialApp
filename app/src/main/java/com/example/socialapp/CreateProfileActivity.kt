@@ -23,8 +23,7 @@ class CreateProfileActivity : AppCompatActivity() {
     private val storageRef = storage.reference
     private lateinit var pickImage: ImageButton
     private var imageUri2: Uri? = null
-    private val getContent =
-        registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+    private val getContent = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
             if (result.resultCode == Activity.RESULT_OK) {
                 val data: Intent? = result.data
                 if (data != null) {
