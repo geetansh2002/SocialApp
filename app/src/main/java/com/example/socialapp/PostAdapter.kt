@@ -13,9 +13,12 @@ import com.firebase.ui.firestore.FirestoreRecyclerOptions
 import java.text.SimpleDateFormat
 import java.util.Locale
 
-class PostAdapter(options: FirestoreRecyclerOptions<Post>) : FirestoreRecyclerAdapter<Post, ViewHolder>(
+class PostAdapter(options: FirestoreRecyclerOptions<Post>,private val onDataChanges: OnDataChanges) : FirestoreRecyclerAdapter<Post, ViewHolder>(
     options
 ) {
+    interface OnDataChanges{
+        fun datachange()
+    }
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.itempost,parent,false))
     }
@@ -24,6 +27,11 @@ class PostAdapter(options: FirestoreRecyclerOptions<Post>) : FirestoreRecyclerAd
         holder.userName.text=model.username
         holder.post.text=model.post
         holder.createdAt.text=getTimeAgo(model.currentTime)
+    }
+
+    override fun onDataChanged() {
+        super.onDataChanged()
+        onDataChanges.datachange()
     }
 
     private fun getTimeAgo(timestamp: String?): String {
