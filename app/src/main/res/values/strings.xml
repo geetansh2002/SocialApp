@@ -20,4 +20,14 @@
     <string name="userimage">userImage</string>
     <string name="image">image</string>
     <string name="like">like</string>
+    <string name="edit_profile">Edit Profile</string>
+    <string name="log_out">Log Out</string>
+    <string name="edit_profile_">Edit Profile</string>
+    <string name="log_out_">Log Out</string>
+    <string name="edit_profile__">Edit Profile</string>
+    <string name="edit_image">Edit image</string>
+    <string name="change">Change</string>
+    <string name="logo_">logo</string>
+    <string name="change_profile_image">Change Profile Image</string>
+    <string name="version_0_0_1">Version-0.0.1</string>
 </resources>

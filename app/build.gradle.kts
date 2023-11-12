@@ -56,6 +56,7 @@ dependencies {
     implementation ("com.firebaseui:firebase-ui-firestore:8.0.0")
     implementation ("com.google.firebase:firebase-core:21.1.1")
     implementation ("com.google.firebase:firebase-storage:20.3.0")
+    implementation ("com.google.android.material:material:<version>")
 
 
 

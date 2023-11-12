@@ -70,7 +70,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="20dp"
         android:id="@+id/createButton"
-        android:background="@drawable/background1"
+        android:background="@drawable/background2"
         android:text="@string/create"
         />
 
